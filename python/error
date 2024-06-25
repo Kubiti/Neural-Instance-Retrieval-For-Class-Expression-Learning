@@ -1,0 +1,50 @@
+Traceback (most recent call last):
+  File "/home/student117/Documents/aims/project/neural instance retriever for class expression learning/code/python/train_comp.py", line 234, in <module>
+    train(Disjunction)
+  File "/home/student117/Documents/aims/project/neural instance retriever for class expression learning/code/python/train_comp.py", line 142, in train
+    for x, y in train_dataloader:
+  File "/home/student117/.local/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 631, in __next__
+    data = self._next_data()
+  File "/home/student117/.local/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 1346, in _next_data
+    return self._process_data(data)
+  File "/home/student117/.local/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 1372, in _process_data
+    data.reraise()
+  File "/home/student117/.local/lib/python3.10/site-packages/torch/_utils.py", line 705, in reraise
+    raise exception
+KeyError: Caught KeyError in DataLoader worker process 0.
+Original Traceback (most recent call last):
+  File "/home/student117/.local/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3802, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "index.pyx", line 153, in pandas._libs.index.IndexEngine.get_loc
+  File "index.pyx", line 182, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7081, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7089, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'None'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/student117/.local/lib/python3.10/site-packages/torch/utils/data/_utils/worker.py", line 308, in _worker_loop
+    data = fetcher.fetch(index)  # type: ignore[possibly-undefined]
+  File "/home/student117/.local/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py", line 51, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/student117/.local/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py", line 51, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/student117/Documents/aims/project/neural instance retriever for class expression learning/code/python/dataset.py", line 45, in __getitem__
+    parts = [self.process(part) for part in parts]
+  File "/home/student117/Documents/aims/project/neural instance retriever for class expression learning/code/python/dataset.py", line 45, in <listcomp>
+    parts = [self.process(part) for part in parts]
+  File "/home/student117/Documents/aims/project/neural instance retriever for class expression learning/code/python/dataset.py", line 24, in process
+    exp_emb = self.neg(ele) if '¬' in ele else self.embedding.loc[ele]
+  File "/home/student117/.local/lib/python3.10/site-packages/pandas/core/indexing.py", line 1192, in __getitem__
+    return self._getitem_axis(maybe_callable, axis=axis)
+  File "/home/student117/.local/lib/python3.10/site-packages/pandas/core/indexing.py", line 1432, in _getitem_axis
+    return self._get_label(key, axis=axis)
+  File "/home/student117/.local/lib/python3.10/site-packages/pandas/core/indexing.py", line 1382, in _get_label
+    return self.obj.xs(label, axis=axis)
+  File "/home/student117/.local/lib/python3.10/site-packages/pandas/core/generic.py", line 4295, in xs
+    loc = index.get_loc(key)
+  File "/home/student117/.local/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3809, in get_loc
+    raise KeyError(key) from err
+KeyError: 'None'
+
